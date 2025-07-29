@@ -1,98 +1,112 @@
-import React from 'react';
-import { Target, Eye, Heart } from 'lucide-react';
-import { useLanguage } from '../contexts/LanguageContext';
+import React from "react";
+import { Shield, Zap, Users, ArrowRight, Sparkles } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
-const Differentials: React.FC = () => {
+const mainDifferentials = [
+  {
+    icon: Shield,
+    title: "Segurança Absoluta",
+    desc: "Análises que garantem 100% de conformidade com normas técnicas e regulamentações do setor elétrico",
+    highlight: "99.9% Precisão"
+  },
+  {
+    icon: Zap,
+    title: "Velocidade Inteligente",
+    desc: "Entregas até 40% mais rápidas utilizando automação e metodologias otimizadas",
+    highlight: "40% + Rápido"
+  },
+  {
+    icon: Users,
+    title: "Expertise Comprovada",
+    desc: "Time com mais de 15 anos de experiência em projetos de grande porte no Brasil",
+    highlight: "+500 Projetos"
+  }
+];
+
+export default function Differentials() {
   const { t } = useLanguage();
-  
-  const differentials = [
-    {
-      icon: Target,
-      title: t('differentials.mission.title'),
-      description: t('differentials.mission.desc'),
-      color: 'primary',
-    },
-    {
-      icon: Eye,
-      title: t('differentials.vision.title'),
-      description: t('differentials.vision.desc'),
-      color: 'accent',
-    },
-    {
-      icon: Heart,
-      title: t('differentials.values.title'),
-      description: t('differentials.values.desc'),
-      color: 'primary',
-    },
-  ];
 
   return (
-    <section id="diferenciais" className="section-container section-container-mobile bg-gradient-to-br from-primary-50 to-blue-50">
-      <div className="content-container content-container-responsive">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-800 mb-5 px-4 sm:px-0">
-            {t('differentials.title')}
-          </h2>
-          <div className="content-padding-elegant">
-            <p className="text-lg lg:text-xl text-neutral-600 max-w-4xl mx-auto text-compact">
-              {t('differentials.subtitle')}
-            </p>
+    <section
+      id="diferenciais"
+      className="relative w-full bg-gradient-to-b from-white via-gray-50 to-blue-50/20 py-20 sm:py-24 lg:py-32 overflow-hidden"
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[800px] h-[400px] bg-gradient-radial from-blue-100/30 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[300px] bg-gradient-to-l from-slate-100/40 to-transparent" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 xl:px-16">
+        
+        {/* Hero Section */}
+        <div className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <Sparkles className="w-4 h-4" />
+            O que nos torna únicos
           </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            <span className="bg-gradient-to-r from-slate-900 via-blue-800 to-slate-900 bg-clip-text text-transparent">
+              Diferenciais que
+            </span>
+            <br />
+            <span className="text-blue-600">transformam projetos</span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Combinamos expertise técnica, tecnologia de ponta e metodologias inovadoras para entregar estudos elétricos que superam expectativas
+          </p>
         </div>
 
-        <div className="section-padding-elegant">
-          <div className="grid lg:grid-cols-3 gap-8 mb-8">
-            {differentials.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-1 mx-2 sm:mx-0"
-              >
-                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full mb-6 ${
-                  item.color === 'primary' ? 'bg-primary-100' : 'bg-accent-100'
-                } group-hover:scale-110 transition-transform duration-300`}>
-                  <item.icon className={`h-7 w-7 ${
-                    item.color === 'primary' ? 'text-primary-600' : 'text-accent-600'
-                  }`} />
+        {/* Main Differentials - Cards Horizontais */}
+        <div className="space-y-8">
+          {mainDifferentials.map((diff, index) => (
+            <div
+              key={index}
+              className={`group flex flex-col lg:flex-row items-center gap-12 ${
+                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+              }`}
+            >
+              {/* Content Side */}
+              <div className="flex-1 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-slate-700 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <diff.icon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                    {diff.highlight}
+                  </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-neutral-800 mb-4">
-                  {item.title}
-                </h3>
-                
-                <div className="px-2 sm:px-0">
-                  <p className="text-base text-neutral-600 text-compact line-clamp-4">
-                    {item.description}
-                  </p>
+                <div>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-4">{diff.title}</h3>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-6">{diff.desc}</p>
+                  <button className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-4 transition-all duration-300">
+                    Saiba mais
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
 
-          <div className="text-center">
-            <div className="bg-white p-8 rounded-xl shadow-lg max-w-6xl mx-auto">
-              <h3 className="text-2xl font-bold text-neutral-800 mb-6 px-4 sm:px-0">
-                {t('differentials.why.title')}
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div className="px-2 sm:px-0">
-                  <div className="text-3xl font-bold text-accent-500 mb-2">{t('differentials.quality')}</div>
-                  <p className="text-base text-neutral-600">{t('differentials.quality.desc')}</p>
-                </div>
-                <div className="px-2 sm:px-0">
-                  <div className="text-3xl font-bold text-accent-500 mb-2">{t('differentials.reliability')}</div>
-                  <p className="text-base text-neutral-600">{t('differentials.reliability.desc')}</p>
-                </div>
-                <div className="px-2 sm:px-0">
-                  <div className="text-3xl font-bold text-accent-500 mb-2">{t('differentials.agility')}</div>
-                  <p className="text-base text-neutral-600">{t('differentials.agility.desc')}</p>
+              {/* Visual Side */}
+              <div className="flex-1">
+                <div className="relative">
+                  <div className="w-full h-80 bg-gradient-to-br from-slate-100 to-blue-100 rounded-3xl p-8 shadow-xl">
+                    <div className="w-full h-full bg-white rounded-2xl shadow-inner flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-slate-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                          <diff.icon className="w-12 h-12 text-white" />
+                        </div>
+                        <div className="text-sm text-gray-500">Visualização do diferencial</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full opacity-20 blur-xl"></div>
                 </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
   );
-};
-
-export default Differentials;
+}
