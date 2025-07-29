@@ -15,7 +15,7 @@ export default {
           300: '#7dd3fc',
           400: '#38bdf8',
           500: '#0ea5e9',
-          600: '#0284c7',  // Azul principal mais sofisticado
+          600: '#0284c7',
           700: '#0369a1',
           800: '#075985',
           900: '#0c4a6e',
@@ -28,7 +28,7 @@ export default {
           200: '#fed7aa',
           300: '#fdba74',
           400: '#fb923c',
-          500: '#f97316',  // Laranja vibrante mas elegante
+          500: '#f97316',
           600: '#ea580c',
           700: '#c2410c',
           800: '#9a3412',
@@ -56,7 +56,7 @@ export default {
           200: '#e2e8f0',
           300: '#cbd5e1',
           400: '#94a3b8',
-          500: '#64748b',  // Azul-acinzentado elegante
+          500: '#64748b',
           600: '#475569',
           700: '#334155',
           800: '#1e293b',
@@ -81,6 +81,17 @@ export default {
           500: '#ef4444',
           600: '#dc2626',
         }
+      },
+      maxWidth: {
+        '8xl': '90rem',
+        '9xl': '100rem',
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem', 
+        '26': '6.5rem',
+        '30': '7.5rem',
+        '34': '8.5rem',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
@@ -113,7 +124,6 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-elegant': 'linear-gradient(135deg, var(--tw-gradient-stops))',
-        'mesh-gradient': 'radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%)',
       },
       boxShadow: {
         'elegant': '0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',

@@ -6,12 +6,11 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="inicio" className="min-h-screen flex items-center relative overflow-hidden">
+    <section id="inicio" className="hero-container hero-container-mobile">
       {/* Background com overlay elegante */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-900/90 via-primary-800/85 to-secondary-900/90 z-10"></div>
-        {/* Padrão geométrico sutil no fundo */}
-        <div className="absolute inset-0 opacity-10 z-5" 
+        <div className="absolute inset-0 opacity-5 z-5" 
              style={{
                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
              }}>
@@ -23,62 +22,77 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div className="container-max relative z-20">
-        <div className="max-w-5xl">
-          <div className="mb-6">
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-md 
-                          rounded-full border border-white/20 text-white/90 text-sm font-medium mb-8">
-              <span className="w-2 h-2 bg-accent-400 rounded-full mr-2 animate-pulse"></span>
+      <div className="hero-content-container hero-content-responsive">
+        <div className="max-w-5xl mx-auto text-left">
+          <div className="mb-4">
+            <div className="inline-flex items-center px-4 py-1.5 bg-white/10 backdrop-blur-md 
+                          rounded-full border border-white/20 text-white/90 text-xs font-medium mb-6">
+              <span className="w-1.5 h-1.5 bg-accent-400 rounded-full mr-2 animate-pulse"></span>
               Sistema Interligado Nacional
             </div>
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight animate-slide-up">
-            {t('hero.title')}{' '}
-            <span className="text-gradient bg-gradient-to-r from-accent-400 to-accent-300 bg-clip-text text-transparent">
-              {t('hero.title.highlight')}
-            </span>
-            {t('hero.title.end')}
-          </h1>
+          {/* Título com largura justificada visualmente - tamanho ligeiramente menor */}
+          <div className="mb-4 lg:mb-6 animate-slide-up">
+            <h1 className="font-bold text-white leading-tight">
+              {/* Linha 1 */}
+              <div className="text-3xl sm:text-4xl lg:text-6xl tracking-wide">
+                Somos uma consultoria de
+              </div>
+              
+              {/* Linha 2 - ESTUDOS ELÉTRICOS em destaque */}
+              <div className="text-3xl sm:text-4xl lg:text-6xl bg-gradient-to-r from-accent-400 to-accent-300 bg-clip-text text-transparent font-black tracking-wider">
+                ESTUDOS ELÉTRICOS,
+              </div>
+              
+              {/* Linha 3 */}
+              <div className="text-3xl sm:text-4xl lg:text-6xl tracking-widest">
+                orgulhosamente brasileira
+              </div>
+            </h1>
+          </div>
           
-          <p className="text-xl md:text-2xl text-neutral-200 mb-10 leading-relaxed animate-slide-up max-w-4xl" 
-             style={{animationDelay: '0.2s'}}>
-            {t('hero.subtitle')}
-          </p>
+          {/* Parágrafo alinhado à esquerda do título - texto menor */}
+          <div className="text-left max-w-4xl">
+            <p className="text-sm sm:text-base lg:text-lg text-neutral-200 mb-6 lg:mb-8 leading-relaxed animate-slide-up" 
+               style={{animationDelay: '0.2s'}}>
+              {t('hero.subtitle')}
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 animate-slide-up" style={{animationDelay: '0.4s'}}>
+          <div className="flex flex-col sm:flex-row gap-4 animate-slide-up" style={{animationDelay: '0.4s'}}>
             <a
               href="#contato"
               className="group inline-flex items-center justify-center bg-gradient-to-r from-accent-500 to-accent-600 
-                       hover:from-accent-600 hover:to-accent-700 text-white font-semibold py-4 px-8 
-                       rounded-xl transition-all duration-300 shadow-elegant-lg hover:shadow-2xl 
-                       transform hover:-translate-y-1"
+                       hover:from-accent-600 hover:to-accent-700 text-white font-semibold py-3 px-6 
+                       rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl 
+                       transform hover:-translate-y-0.5 text-sm"
             >
               {t('hero.cta')}
-              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
             </a>
             
-            <button className="group inline-flex items-center justify-center px-8 py-4 
+            <button className="group inline-flex items-center justify-center px-6 py-3 
                              bg-white/10 backdrop-blur-md border-2 border-white/30 text-white 
-                             font-semibold rounded-xl hover:bg-white hover:text-primary-900 
-                             transition-all duration-300 shadow-elegant hover:shadow-elegant-lg">
-              <Play className="mr-3 h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
+                             font-semibold rounded-lg hover:bg-white hover:text-primary-900 
+                             transition-all duration-300 shadow-lg hover:shadow-xl text-sm">
+              <Play className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
               {t('hero.video')}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Indicador de scroll elegante */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/70 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center backdrop-blur-sm">
-          <div className="w-1 h-3 bg-white/70 rounded-full mt-2"></div>
+      {/* Indicador de scroll compacto */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white/70 animate-bounce">
+        <div className="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center backdrop-blur-sm">
+          <div className="w-0.5 h-2 bg-white/70 rounded-full mt-1.5"></div>
         </div>
       </div>
 
-      {/* Efeitos de luz elegantes */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-500/20 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-3xl opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+      {/* Efeitos de luz reduzidos */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent-500/10 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl opacity-30"></div>
     </section>
   );
 };

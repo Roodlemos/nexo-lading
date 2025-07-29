@@ -27,59 +27,65 @@ const Differentials: React.FC = () => {
   ];
 
   return (
-    <section id="diferenciais" className="section-full-height bg-gradient-to-br from-primary-50 to-blue-50">
-      <div className="container-max">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary-900 mb-6">
+    <section id="diferenciais" className="section-container section-container-mobile bg-gradient-to-br from-primary-50 to-blue-50">
+      <div className="content-container content-container-responsive">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-neutral-800 mb-5 px-4 sm:px-0">
             {t('differentials.title')}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {t('differentials.subtitle')}
-          </p>
+          <div className="content-padding-elegant">
+            <p className="text-lg lg:text-xl text-neutral-600 max-w-4xl mx-auto text-compact">
+              {t('differentials.subtitle')}
+            </p>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-12">
-          {differentials.map((item, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 text-center group hover:-translate-y-2"
-            >
-              <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full mb-6 ${
-                item.color === 'primary' ? 'bg-primary-100' : 'bg-accent-100'
-              } group-hover:scale-110 transition-transform duration-300`}>
-                <item.icon className={`h-10 w-10 ${
-                  item.color === 'primary' ? 'text-primary-600' : 'text-accent-600'
-                }`} />
+        <div className="section-padding-elegant">
+          <div className="grid lg:grid-cols-3 gap-8 mb-8">
+            {differentials.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 text-center group hover:-translate-y-1 mx-2 sm:mx-0"
+              >
+                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-full mb-6 ${
+                  item.color === 'primary' ? 'bg-primary-100' : 'bg-accent-100'
+                } group-hover:scale-110 transition-transform duration-300`}>
+                  <item.icon className={`h-7 w-7 ${
+                    item.color === 'primary' ? 'text-primary-600' : 'text-accent-600'
+                  }`} />
+                </div>
+                
+                <h3 className="text-xl font-bold text-neutral-800 mb-4">
+                  {item.title}
+                </h3>
+                
+                <div className="px-2 sm:px-0">
+                  <p className="text-base text-neutral-600 text-compact line-clamp-4">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-              
-              <h3 className="text-2xl font-bold text-primary-900 mb-4">
-                {item.title}
+            ))}
+          </div>
+
+          <div className="text-center">
+            <div className="bg-white p-8 rounded-xl shadow-lg max-w-6xl mx-auto">
+              <h3 className="text-2xl font-bold text-neutral-800 mb-6 px-4 sm:px-0">
+                {t('differentials.why.title')}
               </h3>
-              
-              <p className="text-gray-600 leading-relaxed text-lg">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="text-center">
-          <div className="bg-white p-8 rounded-2xl shadow-xl max-w-4xl mx-auto">
-            <h3 className="text-3xl font-bold text-primary-900 mb-6">
-              {t('differentials.why.title')}
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-4xl font-bold text-accent-500 mb-2">{t('differentials.quality')}</div>
-                <p className="text-gray-600">{t('differentials.quality.desc')}</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-accent-500 mb-2">{t('differentials.reliability')}</div>
-                <p className="text-gray-600">{t('differentials.reliability.desc')}</p>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-accent-500 mb-2">{t('differentials.agility')}</div>
-                <p className="text-gray-600">{t('differentials.agility.desc')}</p>
+              <div className="grid md:grid-cols-3 gap-6 text-center">
+                <div className="px-2 sm:px-0">
+                  <div className="text-3xl font-bold text-accent-500 mb-2">{t('differentials.quality')}</div>
+                  <p className="text-base text-neutral-600">{t('differentials.quality.desc')}</p>
+                </div>
+                <div className="px-2 sm:px-0">
+                  <div className="text-3xl font-bold text-accent-500 mb-2">{t('differentials.reliability')}</div>
+                  <p className="text-base text-neutral-600">{t('differentials.reliability.desc')}</p>
+                </div>
+                <div className="px-2 sm:px-0">
+                  <div className="text-3xl font-bold text-accent-500 mb-2">{t('differentials.agility')}</div>
+                  <p className="text-base text-neutral-600">{t('differentials.agility.desc')}</p>
+                </div>
               </div>
             </div>
           </div>
